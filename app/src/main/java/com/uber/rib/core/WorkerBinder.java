@@ -15,6 +15,7 @@
  */
 package com.uber.rib.core;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.VisibleForTesting;
 import com.jakewharton.rxrelay2.PublishRelay;
 import com.uber.rib.core.lifecycle.InteractorEvent;
@@ -61,6 +62,8 @@ public final class WorkerBinder {
         }
     }
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    @SuppressLint("CheckResult")
     @VisibleForTesting
     static WorkerUnbinder bind(Observable<InteractorEvent> lifecycle, final Worker worker) {
         final PublishRelay<WorkerEvent> unbindSubject = PublishRelay.create();
@@ -83,14 +86,14 @@ public final class WorkerBinder {
                         .takeUntil(
                                 new Predicate<WorkerEvent>() {
                                     @Override
-                                    public boolean test(WorkerEvent workerEvent) throws Exception {
+                                    public boolean test(WorkerEvent workerEvent) {
                                         return workerEvent == WorkerEvent.STOP;
                                     }
                                 });
 
         workerLifecycle.subscribe(new Consumer<WorkerEvent>() {
             @Override
-            public void accept(WorkerEvent workerEvent) throws Exception {
+            public void accept(WorkerEvent workerEvent) {
                 switch (workerEvent) {
                     case START:
                         worker.onStart(new WorkerScopeProvider(workerLifecycle.hide()));

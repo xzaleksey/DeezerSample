@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package com.alekseyvalyakin.deezersample.common.view
 
 import android.view.ViewManager

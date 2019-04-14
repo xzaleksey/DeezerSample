@@ -90,7 +90,7 @@ public abstract class RibActivity extends AppCompatActivity
                 .filter(
                         new Predicate<ActivityLifecycleEvent>() {
                             @Override
-                            public boolean test(ActivityLifecycleEvent activityEvent) throws Exception {
+                            public boolean test(ActivityLifecycleEvent activityEvent) {
                                 return clazz.isAssignableFrom(activityEvent.getClass());
                             }
                         })
@@ -115,7 +115,7 @@ public abstract class RibActivity extends AppCompatActivity
                 .filter(
                         new Predicate<ActivityCallbackEvent>() {
                             @Override
-                            public boolean test(ActivityCallbackEvent activityCallbackEvent) throws Exception {
+                            public boolean test(ActivityCallbackEvent activityCallbackEvent) {
                                 return clazz.isAssignableFrom(activityCallbackEvent.getClass());
                             }
                         })
@@ -140,7 +140,7 @@ public abstract class RibActivity extends AppCompatActivity
     protected void onCreate(@Nullable android.os.Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ViewGroup rootViewGroup = ((ViewGroup) findViewById(android.R.id.content));
+        ViewGroup rootViewGroup = findViewById(android.R.id.content);
 
         lifecycleRelay.accept(ActivityLifecycleEvent.createOnCreateEvent(savedInstanceState));
         router = createRouter(rootViewGroup);
@@ -201,9 +201,7 @@ public abstract class RibActivity extends AppCompatActivity
     @CallSuper
     @SuppressWarnings("CheckNullabilityTypes")
     protected void onDestroy() {
-        if (lifecycleRelay != null) {
-            lifecycleRelay.accept(ActivityLifecycleEvent.create(ActivityLifecycleEvent.Type.DESTROY));
-        }
+        lifecycleRelay.accept(ActivityLifecycleEvent.create(ActivityLifecycleEvent.Type.DESTROY));
         if (router != null) {
             router.dispatchDetach();
         }
