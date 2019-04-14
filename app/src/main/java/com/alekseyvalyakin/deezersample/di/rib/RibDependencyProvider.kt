@@ -1,0 +1,6 @@
+package com.alekseyvalyakin.deezersample.di.rib
+
+import com.alekseyvalyakin.deezersample.di.singleton.SingletonDependencyProvider
+import com.alekseyvalyakin.deezersample.di.activity.ActivityDependencyProvider
+
+interface RibDependencyProvider : SingletonDependencyProvider, ActivityDependencyProvider

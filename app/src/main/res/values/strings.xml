@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DeezerSample</string>
+    <string name="search">Search</string>
+    <string name="artists">Artists</string>
+    <string name="error">Error</string>
+    <string name="albums">Albums</string>
+</resources>

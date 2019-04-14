@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="unit_0125">1dp</dimen>
+    <dimen name="unit_quarter">2dp</dimen>
+    <dimen name="unit_half">4dp</dimen>
+    <dimen name="unit_1">8dp</dimen>
+    <dimen name="unit_2">16dp</dimen>
+    <dimen name="unit_2_and_half">20dp</dimen>
+    <dimen name="unit_5">40dp</dimen>
+    <dimen name="unit_7">56dp</dimen>
+    <dimen name="unit_9">72dp</dimen>
+    <dimen name="common_horizontal_margin">@dimen/unit_2</dimen>
+    <dimen name="common_text_size">16dp</dimen>
+    <dimen name="hint_text_size">14dp</dimen>
+    <dimen name="appbar_title_size">@dimen/header_1_text_size</dimen>
+    <dimen name="header_1_text_size">20dp</dimen>
+</resources>

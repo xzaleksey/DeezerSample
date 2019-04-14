@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <id name="left_icon"/>
+    <id name="right_icon"/>
+    <id name="recycler_view"/>
+    <id name="search_input"/>
+    <id name="artist_avatar"/>
+    <id name="album_image"/>
+    <id name="appbar"/>
+    <id name="status_bar"/>
+    <id name="top_container"/>
+    <id name="text_left"/>
+    <id name="text_primary"/>
+</resources>
