@@ -19,7 +19,6 @@ import io.reactivex.Observable
 import io.reactivex.disposables.Disposables
 import org.jetbrains.anko.dimen
 import org.jetbrains.anko.image
-import timber.log.Timber
 
 class AlbumPresenterImpl(
     private val albumView: AlbumView
@@ -37,10 +36,11 @@ class AlbumPresenterImpl(
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 offset += dy
                 val size = Math.max(0, albumView.imageViewSize - offset)
-                Timber.d("size $size offset $offset")
+
                 albumView.imageView.layoutParams.height = size
                 albumView.imageView.layoutParams.width = size
                 albumView.imageView.requestLayout()
+
                 if (size == 0) {
                     val title = latestModel!!.albumModel!!.title
                     albumView.appbar.setTitle(title)
