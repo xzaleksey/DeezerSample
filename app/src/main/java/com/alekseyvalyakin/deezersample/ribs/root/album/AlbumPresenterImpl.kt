@@ -101,6 +101,7 @@ class AlbumPresenterImpl(
             disposable.dispose()
             disposable = imageProvider.observeImage()
                 .subscribeWithErrorLogging { i ->
+                    //could be moved under interface of imageLoader
                     Glide.with(albumView.imageView)
                         .load(i.getBitmap())
                         .transition(DrawableTransitionOptions.withCrossFade())
